@@ -39,3 +39,5 @@ python app.py
 ## 许可证
 
 MIT License 
+
+## Tianqing's Vibe Coding Learning Journal
