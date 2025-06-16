@@ -2,6 +2,9 @@
 
 一个基于 Flask 和 Tailwind CSS 的八字五行排盘工具，可以计算用户的八字、五行和十神。
 
+
+_Tianqing's Vibe Coding Learning Journal._
+
 ## 功能特点
 
 - 计算四柱八字（年柱、月柱、日柱、时柱）
@@ -40,9 +43,9 @@ python app.py
 
 MIT License 
 
-## Tianqing's Vibe Coding Learning Journal
-### 本地预览
 
+## 本地预览
+```
 # 安装依赖
 npm install
 
@@ -54,3 +57,4 @@ npm run build
 
 # 预览构建后的项目
 npm run preview
+```
