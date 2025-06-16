@@ -1,10 +1,13 @@
 # 八字五行排盘工具 | Bazi (Eight Characters) Calculator
 
+
 一个基于Vite的React应用的八字五行排盘工具，可以计算用户的八字、五行和十神。
 A modern web application for calculating and analyzing Chinese Bazi (Eight Characters), Five Elements, and Ten Gods based on birth date and time.
 
 网页链接 | Live Demo:
 https://tubular-paprenjak-4af727.netlify.app/
+
+_**Disclaimer：纯属娱乐（just for fun）**_
 
 _Tianqing's Vibe Coding Learning Journal._
 
