@@ -57,6 +57,14 @@ npm run preview
 ```
 
 ## 项目结构 | Project Structure
+bazi_calculator/
+├── src/
+│ ├── components/ # React components
+│ ├── pages/ # Page components
+│ ├── utils/ # Utility functions
+│ └── types/ # TypeScript type definitions
+├── public/ # Static assets
+└── dist/ # Production build output
 
 ## 功能详解 | Features in Detail
 
@@ -103,11 +111,8 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 MIT License
 
-## 作者 | Author
 
-Tianqing Zhou
-
-## 致谢 | Acknowledgments
+## Reference
 
 - [lunar-python](https://github.com/6tail/lunar-python) 用于八字计算 | for Bazi calculations
 - [Tailwind CSS](https://tailwindcss.com) 用于样式设计 | for styling
