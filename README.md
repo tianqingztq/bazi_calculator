@@ -1,6 +1,6 @@
 # 八字五行排盘工具
 
-一个基于 Flask 和 Tailwind CSS 的八字五行排盘工具，可以计算用户的八字、五行和十神。
+一个基于Vite的React应用的八字五行排盘工具，可以计算用户的八字、五行和十神。
 
 网页链接：
 https://tubular-paprenjak-4af727.netlify.app/
@@ -21,6 +21,7 @@ _Tianqing's Vibe Coding Learning Journal._
 - 八字计算：lunar-python
 
 ## 本地安装和运行
+静态部署于Netlify
 ```
 # 安装依赖
 npm install
@@ -28,7 +29,7 @@ npm install
 # 启动开发服务器
 npm run dev
 
-# 构建项目
+# 构建项目, 生成静态文件
 npm run build
 
 # 预览构建后的项目
