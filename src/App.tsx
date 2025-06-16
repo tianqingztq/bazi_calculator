@@ -1,11 +1,19 @@
 import React, { useState, useMemo } from 'react';
-import { Sparkles, Pin as Yin, RefreshCw } from 'lucide-react';
+import { Sparkles, Pin as Yin, RefreshCw, Calendar, BookOpen, Crown, Shield, Star } from 'lucide-react';
 import { DateTimeInput } from './components/DateTimeInput';
 import { PillarsDisplay } from './components/PillarsDisplay';
 import { ElementsAnalysis } from './components/ElementsAnalysis';
 import { TenGodsAnalysis } from './components/TenGodsAnalysis';
+import { GenderAnalysis } from './components/GenderAnalysis';
+import { LuckPeriodsDisplay } from './components/LuckPeriodsDisplay';
+import { TenGodsDetails } from './components/TenGodsDetails';
+import { DestinyPatternAnalysis } from './components/DestinyPatternAnalysis';
+import { RemedyAdviceDisplay } from './components/RemedyAdviceDisplay';
+import { OverallFortuneDisplay } from './components/OverallFortuneDisplay';
 import { calculateBazi } from './utils/baziCalculator';
 import { DateInput } from './types/bazi';
+
+type TabType = 'basic' | 'luck' | 'gods' | 'pattern' | 'remedy' | 'fortune';
 
 function App() {
   const [dateInput, setDateInput] = useState<DateInput>({
@@ -13,8 +21,11 @@ function App() {
     month: 1,
     day: 1,
     hour: 12,
-    minute: 0
+    minute: 0,
+    gender: 'male'
   });
+
+  const [activeTab, setActiveTab] = useState<TabType>('basic');
 
   const baziResult = useMemo(() => {
     return calculateBazi(dateInput);
@@ -26,9 +37,19 @@ function App() {
       month: 1,
       day: 1,
       hour: 12,
-      minute: 0
+      minute: 0,
+      gender: 'male'
     });
   };
+
+  const tabs = [
+    { id: 'basic' as TabType, name: '基础分析', icon: Sparkles },
+    { id: 'luck' as TabType, name: '大运排盘', icon: Calendar },
+    { id: 'gods' as TabType, name: '十神详解', icon: BookOpen },
+    { id: 'pattern' as TabType, name: '命格分析', icon: Crown },
+    { id: 'remedy' as TabType, name: '改运指南', icon: Shield },
+    { id: 'fortune' as TabType, name: '综合运势', icon: Star }
+  ];
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-gray-900 to-black relative overflow-hidden">
@@ -74,6 +95,31 @@ function App() {
         </div>
       </div>
 
+      {/* Navigation Tabs */}
+      <div className="relative bg-gradient-to-r from-gray-900/50 to-gray-800/50 backdrop-blur-sm border-b border-amber-500/10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex overflow-x-auto scrollbar-hide">
+            {tabs.map((tab) => {
+              const Icon = tab.icon;
+              return (
+                <button
+                  key={tab.id}
+                  onClick={() => setActiveTab(tab.id)}
+                  className={`flex items-center gap-2 px-6 py-4 whitespace-nowrap font-medium transition-all duration-300 border-b-2 ${
+                    activeTab === tab.id
+                      ? 'text-amber-300 border-amber-400 bg-amber-900/20'
+                      : 'text-amber-200/60 border-transparent hover:text-amber-200 hover:border-amber-500/30'
+                  }`}
+                >
+                  <Icon className="w-4 h-4" />
+                  {tab.name}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+
       {/* Main Content */}
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -93,6 +139,8 @@ function App() {
                 <p className="border-l-2 border-amber-500 pl-3">• 五行相生相克体现自然法则</p>
                 <p className="border-l-2 border-amber-500 pl-3">• 阴阳平衡是万物和谐之道</p>
                 <p className="border-l-2 border-amber-500 pl-3">• 十神关系揭示人生格局</p>
+                <p className="border-l-2 border-amber-500 pl-3">• 大运流年影响命运走向</p>
+                <p className="border-l-2 border-amber-500 pl-3">• 改运调节化解不利因素</p>
               </div>
               <div className="mt-6 p-4 bg-gradient-to-r from-amber-800/20 to-orange-800/20 rounded-lg border border-amber-600/30">
                 <p className="text-xs text-amber-200/70 text-center italic">
@@ -104,12 +152,36 @@ function App() {
 
           {/* Right Column - Results */}
           <div className="lg:col-span-2 space-y-8">
-            <PillarsDisplay result={baziResult} />
+            {activeTab === 'basic' && (
+              <>
+                <PillarsDisplay result={baziResult} />
+                <div className="grid grid-cols-1 xl:grid-cols-2 gap-8">
+                  <ElementsAnalysis result={baziResult} />
+                  <TenGodsAnalysis result={baziResult} />
+                </div>
+                <GenderAnalysis result={baziResult} />
+              </>
+            )}
             
-            <div className="grid grid-cols-1 xl:grid-cols-2 gap-8">
-              <ElementsAnalysis result={baziResult} />
-              <TenGodsAnalysis result={baziResult} />
-            </div>
+            {activeTab === 'luck' && (
+              <LuckPeriodsDisplay result={baziResult} />
+            )}
+            
+            {activeTab === 'gods' && (
+              <TenGodsDetails result={baziResult} />
+            )}
+            
+            {activeTab === 'pattern' && (
+              <DestinyPatternAnalysis result={baziResult} />
+            )}
+            
+            {activeTab === 'remedy' && (
+              <RemedyAdviceDisplay result={baziResult} />
+            )}
+            
+            {activeTab === 'fortune' && (
+              <OverallFortuneDisplay result={baziResult} />
+            )}
           </div>
         </div>
       </div>

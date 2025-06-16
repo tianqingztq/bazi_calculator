@@ -41,3 +41,16 @@ python app.py
 MIT License 
 
 ## Tianqing's Vibe Coding Learning Journal
+### 本地预览
+
+# 安装依赖
+npm install
+
+# 启动开发服务器
+npm run dev
+
+# 构建项目
+npm run build
+
+# 预览构建后的项目
+npm run preview

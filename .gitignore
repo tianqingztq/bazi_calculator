@@ -4,3 +4,10 @@ __pycache__/
 venv/
 .DS_Store 
 docs/
+node_modules/
+dist/
+.next/
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
