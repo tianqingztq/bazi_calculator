@@ -20,33 +20,7 @@ _Tianqing's Vibe Coding Learning Journal._
 - 前端：HTML + Tailwind CSS
 - 八字计算：lunar-python
 
-## 安装和运行
-
-1. 克隆仓库
-```bash
-git clone https://github.com/tianqingztq/bazi_calculator.git
-cd bazi_calculator
-```
-
-2. 安装依赖
-```bash
-pip install -r requirements.txt
-```
-
-3. 运行应用
-```bash
-python app.py
-```
-
-4. 访问应用
-打开浏览器访问 http://localhost:5000
-
-## 许可证
-
-MIT License 
-
-
-## 本地预览
+## 本地安装和运行
 ```
 # 安装依赖
 npm install
@@ -60,3 +34,10 @@ npm run build
 # 预览构建后的项目
 npm run preview
 ```
+
+## 许可证
+
+MIT License 
+
+
+
