@@ -2,6 +2,8 @@
 
 一个基于 Flask 和 Tailwind CSS 的八字五行排盘工具，可以计算用户的八字、五行和十神。
 
+网页链接：
+https://tubular-paprenjak-4af727.netlify.app/
 
 _Tianqing's Vibe Coding Learning Journal._
 
